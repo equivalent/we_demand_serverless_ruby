@@ -41,7 +41,6 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (8.1.0.1)
       execjs
-    bcrypt (3.1.11)
     bindex (0.5.0)
     bootstrap (4.0.0)
       autoprefixer-rails (>= 6.0.3)
@@ -58,12 +57,6 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
-    devise (4.4.1)
-      bcrypt (~> 3.0)
-      orm_adapter (~> 0.1)
-      railties (>= 4.1.0, < 5.2)
-      responders
-      warden (~> 1.2.3)
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -120,7 +113,6 @@ GEM
     omniauth-oauth2 (1.5.0)
       oauth2 (~> 1.1)
       omniauth (~> 1.2)
-    orm_adapter (0.5.0)
     pg (0.21.0)
     popper_js (1.12.9)
     puma (3.11.3)
@@ -154,9 +146,6 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
-    responders (2.4.0)
-      actionpack (>= 4.2.0, < 5.3)
-      railties (>= 4.2.0, < 5.3)
     ruby_dep (1.5.0)
     sass (3.5.5)
       sass-listen (~> 4.0.0)
@@ -188,8 +177,6 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.6)
       execjs (>= 0.3.0, < 3)
-    warden (1.2.7)
-      rack (>= 1.0)
     web-console (3.5.1)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -206,7 +193,6 @@ DEPENDENCIES
   bootstrap (~> 4.0.0)
   byebug
   coffee-rails (~> 4.2)
-  devise
   figaro
   font-awesome-rails
   jbuilder (~> 2.5)

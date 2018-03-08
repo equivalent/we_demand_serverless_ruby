@@ -31,8 +31,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 gem "font-awesome-rails"
-gem 'omniauth', require: false
-gem 'omniauth-github', require: false
+gem 'omniauth'
+gem 'omniauth-github'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
