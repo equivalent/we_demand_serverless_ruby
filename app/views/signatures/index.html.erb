@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="header clearfix">
+    <nav>
+      <ul class="nav nav-pills float-right">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Sign<span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </nav>
+    <h3 class="text-muted">Serverless Ruby</h3>
+  </div>
+
+  <div class="jumbotron">
+    <h1 class="display-3">We demand FaaS for Ruby&nbsp;!</h1>
+    <p class="lead">
+      This is an online petition to show that Ruby community is prepared to
+      go <a href="https://martinfowler.com/articles/serverless.html">Serverless</a>
+      and show <a href="https://en.wikipedia.org/wiki/Function_as_a_service" title="e.g.: AWS Lambda, Azure Functions, ...)" >Function as a Service</a>
+      providers that there is a value and market potential to support Ruby MRI.
+    </p>
+    <p>
+      <%= link_to sign_path, class: 'btn btn-lg btn-success',role: "button" do %>
+        Sign the petition with Github <%= fa_icon("github") %>
+      <% end %>
+    </p>
+  </div>
+
+
+  <div class="notice"><%= notice %></p>
+  <div class="alert"><%= alert %></p>
+
+  <h2>What is the point ?</h2>
+
+  <p>
+  All FaaS providers are driven by market value when choosing what programming language
+  will they choose next. More developers from the Ruby community will bother them
+  with this more likely it is Ruby will be available on AWS Lambda, Azure Functions, ...
+  </p>
+
+
+  <h2>Want to help more ?</h2>
+
+  <p>
+    Write a support comment or <%= fa_icon('thumbs-up') %>  these discussion threads: <a href="https://forums.aws.amazon.com/thread.jspa?messageID=758159">AWS Forum</a>,
+    <a href="https://github.com/Azure/Azure-Functions/issues/705">Microsoft Azure Functions Github</a>
+  </p>
+
+  <h2><%= User.count %> Developers alredy signed:</h2>
+
+  <div class="row marketing">
+    <div class="col-lg-6">
+      <h4>Subheading</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Subheading</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+      <h4>Subheading</h4>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
+
+    <div class="col-lg-6">
+      <h4>Subheading</h4>
+      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+
+      <h4>Subheading</h4>
+      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+
+      <h4>Subheading</h4>
+      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <ul>
+      <li><a href="https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/">Run traveling Ruby on AWS Lambda</a></li>
+    </ul>
+  </footer>
+
+</div> <!-- /container -->

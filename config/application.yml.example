@@ -1,0 +1,4 @@
+DB_USER: my_postgres_user
+DB_PASS: 'xxxxxxxxxxxxxxx'
+GITHUB_KEY: xxxxxxxxxxxxxxxxxxxx
+GITHUB_SECRET: yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy
