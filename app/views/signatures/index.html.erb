@@ -3,7 +3,7 @@
     <nav>
       <ul class="nav nav-pills float-right">
         <li class="nav-item">
-          <a class="nav-link active" href="#">Sign<span class="sr-only">(current)</span></a>
+          <a class="nav-link active" href="/auth/github">Sign<span class="sr-only">(current)</span></a>
         </li>
       </ul>
     </nav>
@@ -19,7 +19,7 @@
       providers that there is a value and market potential to support Ruby MRI.
     </p>
     <p>
-      <%= link_to sign_path, class: 'btn btn-lg btn-success',role: "button" do %>
+      <%= link_to '/auth/github', class: 'btn btn-lg btn-success',role: "button" do %>
         Sign the petition with Github <%= fa_icon("github") %>
       <% end %>
     </p>
