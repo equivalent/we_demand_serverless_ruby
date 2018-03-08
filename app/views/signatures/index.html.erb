@@ -18,58 +18,112 @@
       and show <a href="https://en.wikipedia.org/wiki/Function_as_a_service" title="e.g.: AWS Lambda, Azure Functions, ...)" >Function as a Service</a>
       providers that there is a value and market potential to support Ruby MRI.
     </p>
-    <p>
-      <%= link_to '/auth/github', class: 'btn btn-lg btn-success',role: "button" do %>
-        Sign the petition with Github <%= fa_icon("github") %>
-      <% end %>
-    </p>
+
+    <% if current_user %>
+      <p class="text-success">
+        Thank you ! You've signed the petition.
+      </p>
+
+      <p>
+        If you ever change your mind and you will want to remove your name from the list
+        you can do so by clicking this link:
+        <%= link_to unsign_path, class: 'text-danger',role: "button", data: { confirm: 'Are you sure you want to remove yourself from the list ?'} do %>
+          Remove myself <%= fa_icon('frown') %>
+        <% end %>
+      </p>
+    <% else %>
+      <p>
+        <%= link_to '/auth/github', class: 'btn btn-lg btn-success',role: "button" do %>
+          Sign the petition with Github <%= fa_icon("github") %>
+        <% end %>
+      </p>
+    <% end %>
   </div>
 
 
-  <div class="notice"><%= notice %></p>
-  <div class="alert"><%= alert %></p>
+  <% if notice %>
+    <div class="alert alert-warning" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+  <h2>What is FaaS and Serverless</h2>
+
+  <p>
+  <strong>FaaS (Function as a Service)</strong> is a way how you can execute your code
+  in the cloud while paying only for execution time (and memory consumption)
+  without the need of maintaining your infrastructure
+  (read more <a href="https://en.wikipedia.org/wiki/Function_as_a_service">here</a>).
+  </p>
+
+  <p>
+  Providers like <a href="https://aws.amazon.com/lambda/">AWS Lambda</a>, <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a>, ...
+  already support languages like Java, Python or JavaScript (but no Ruby !) so that you can build complex
+  Microservice alike web applications without the worry of the infrastructure overhead.
+  </p>
+
+  <p>
+  Applications built this way is what we call <strong>Serverless</strong> (read more <a href="https://martinfowler.com/articles/serverless.html">here</a>)
+  </p>
+
+  <p>
+  FaaS products like AWS Lambda are to "compute" similar what  AWS S3 is to "storage".
+  It's the new era of web application Architecture and Ruby community wants to be in the front line !
+  </p>
+
 
   <h2>What is the point ?</h2>
 
   <p>
+  Goal of this website is to prove to FaaS providers there is a large demand
+  from Ruby community in building applications this way with Ruby language
+  </p>
+
+  <p>
   All FaaS providers are driven by market value when choosing what programming language
-  will they choose next. More developers from the Ruby community will bother them
-  with this more likely it is Ruby will be available on AWS Lambda, Azure Functions, ...
+  will they support next. If more developers will bother them
+  with requesting Ruby then more likely it is it will get available.
   </p>
 
 
   <h2>Want to help more ?</h2>
 
   <p>
-    Write a support comment or <%= fa_icon('thumbs-up') %>  these discussion threads: <a href="https://forums.aws.amazon.com/thread.jspa?messageID=758159">AWS Forum</a>,
+  Please sign the this petition by clicking on the green button on top of the page.
+  </p>
+
+  <p>
+    If you done so and want to push more
+    write a support comment or <%= fa_icon('thumbs-up') %>  in these discussion threads: <a href="https://forums.aws.amazon.com/thread.jspa?messageID=758159">AWS Forum</a>,
     <a href="https://github.com/Azure/Azure-Functions/issues/705">Microsoft Azure Functions Github</a>
   </p>
 
-  <h2><%= User.count %> Developers alredy signed:</h2>
+  <p></p>
 
-  <div class="row marketing">
-    <div class="col-lg-6">
-      <h4>Subheading</h4>
-      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+  <h2><strong><%= User.count %></strong> Developers already signed:</h2>
 
-      <h4>Subheading</h4>
-      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
 
-      <h4>Subheading</h4>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
+  <% @users.in_groups_of(3).each do |users_trio| %>
+    <div class="row marketing">
+      <% users_trio.each do |user| %>
+        <div class="col-md-4">
+          <% if user %>
+            <div class="row">
+              <div class="col-sm-3">
+                <%= image_tag user.avatar_url, alt: user.username, class: 'rounded-circle', height: 75, width: 75 %>
+              </div>
+
+              <div class="col-sm-9">
+                <h4><%= user.username %></h4>
+                <div><%= link_to user.url do %><%= fa_icon("github") %> profile<% end %></div>
+                <div><%= l(user.created_at, format: :short) %></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
     </div>
-
-    <div class="col-lg-6">
-      <h4>Subheading</h4>
-      <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-      <h4>Subheading</h4>
-      <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-      <h4>Subheading</h4>
-      <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-    </div>
-  </div>
+  <% end %>
 
   <footer class="footer">
     <ul>

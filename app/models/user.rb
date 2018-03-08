@@ -7,7 +7,9 @@ class User < ApplicationRecord
     User.new.tap do |user|
       user.provider = auth["provider"]
       user.uid = auth["uid"]
-      user.name = auth["user_info"]["name"]
+      user.avatar_url = auth['extra']['raw_info']['avatar_url']
+      user.username = auth['info']['nickname']
+      user.url = auth['info']['urls']['GitHub']
       user.save!
       user.sign
     end

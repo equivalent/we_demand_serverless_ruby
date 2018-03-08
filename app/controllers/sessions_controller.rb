@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
     user = User.create_with_omniauth(auth) unless user
     reset_session
     session[:user_id] = user.id
-    redirect_to root_path, :notice => 'Signed in!'
+    redirect_to root_path(highlight: user.id), :notice => 'Thank you ! You were added to the list.'
   end
 
   def destroy
