@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-  devise :omniauthable, omniauth_providers: %i[github]
-
   def self.find_via_omniauth(provider:, uid:)
     User.find_by(:provider => provider, :uid => uid.to_s)
   end
