@@ -14,7 +14,9 @@
         <% end %>
       </ul>
     </nav>
-    <h3 class="text-muted">We need Serverless Ruby</h3>
+    <%= link_to root_path do %>
+      <%= image_tag 'faas-ruby.png', height: 40, witdth: 40, alt: 'We need Serverless Ruby' %>
+    <% end %>
   </div>
 
   <% if notice %>
@@ -22,8 +24,6 @@
       <%= notice %>
     </div>
   <% end %>
-
-
 
   <div class="jumbotron">
     <h1 class="display-3">We demand FaaS for Ruby&nbsp;!</h1>
@@ -111,9 +111,10 @@
   </p>
 
   <p>
-    If you done so and want to push more, please
+    If you done so and want to help more, please
     write a support comment or <%= fa_icon('thumbs-up') %>  in these discussion threads: <a href="https://forums.aws.amazon.com/thread.jspa?messageID=758159">AWS Forum</a>,
-    <a href="https://github.com/Azure/Azure-Functions/issues/705">Microsoft Azure Functions Github</a>
+    <a href="https://github.com/Azure/Azure-Functions/issues/705">Microsoft Azure Functions Github</a>. You can also
+    respond to this <a href="https://twitter.com/awscloud/status/659795641204260864?lang=en">tweet from AWS</a>
   </p>
 
   <p class="text-muted">
@@ -147,8 +148,10 @@
   <% end %>
 
   <footer class="footer">
+    <h4>Want to try FaaS with Ruby Now ?</h4>
     <ul>
       <li><a href="https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/">Run traveling Ruby on AWS Lambda</a></li>
+      <li><a href="https://www.youtube.com/watch?v=3NdFzhIvUQA">James Thompson: "Serverless" Ruby on AWS Lambda (JRuby)</a></li>
     </ul>
   </footer>
 

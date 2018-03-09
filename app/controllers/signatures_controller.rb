@@ -1,6 +1,6 @@
 class SignaturesController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(id: :desc)
   end
 
   def unsign
