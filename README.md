@@ -1,24 +1,21 @@
-# README
+# We Demand FaaS Ruby ! We want to go Serverless !
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is source code of the https://serverless-ruby.org petition website.
 
-Things you may want to cover:
+If you found any bug pls creat an issue or make a PR, much appriciated
+:) Also any PR that will improve the website are welcome
 
-* Ruby version
 
-* System dependencies
+Thank you to anyone who will sign the petition.
 
-* Configuration
 
-* Database creation
+## Development mode
 
-* Database initialization
+git clone the repo and set ENV variable in the `config/application.yml`
+(Figaro gem)
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment
 
-* Deployment instructions
+Website is deployed to heroku 
 
-* ...
