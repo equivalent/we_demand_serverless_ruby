@@ -1,14 +1,29 @@
 <div class="container">
+
   <div class="header clearfix">
     <nav>
       <ul class="nav nav-pills float-right">
-        <li class="nav-item">
-          <a class="nav-link active" href="/auth/github">Sign<span class="sr-only">(current)</span></a>
-        </li>
+        <% if current_user %>
+          <li class="nav-item">
+            <%= link_to 'Log out',signout_path %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+            <a class="nav-link active" href="/auth/github">Sign<span class="sr-only">(current)</span></a>
+          </li>
+        <% end %>
       </ul>
     </nav>
-    <h3 class="text-muted">Serverless Ruby</h3>
+    <h3 class="text-muted">We need Serverless Ruby</h3>
   </div>
+
+  <% if notice %>
+    <div class="alert alert-warning" role="alert">
+      <%= notice %>
+    </div>
+  <% end %>
+
+
 
   <div class="jumbotron">
     <h1 class="display-3">We demand FaaS for Ruby&nbsp;!</h1>
@@ -40,13 +55,6 @@
     <% end %>
   </div>
 
-
-  <% if notice %>
-    <div class="alert alert-warning" role="alert">
-      <%= notice %>
-    </div>
-  <% end %>
-
   <h2>What is FaaS and Serverless</h2>
 
   <p>
@@ -58,12 +66,14 @@
 
   <p>
   Providers like <a href="https://aws.amazon.com/lambda/">AWS Lambda</a>, <a href="https://azure.microsoft.com/en-us/services/functions/">Azure Functions</a>, ...
-  already support languages like Java, Python or JavaScript (but no Ruby !) so that you can build complex
+  already support languages like Java, Python or JavaScript so that you can build complex
   Microservice alike web applications without the worry of the infrastructure overhead.
   </p>
 
   <p>
-  Applications built this way is what we call <strong>Serverless</strong> (read more <a href="https://martinfowler.com/articles/serverless.html">here</a>)
+  Applications built with combination of cloud solutions like FaaS (AWS Lambda, Azure Functions,...),
+  cloud databases (DynamoDB, Firebase,...), cloud authentication solutions (Auth0, AWS cognito,...)
+  and other cloud solutions is what we call <strong>Serverless</strong> (read more <a href="https://martinfowler.com/articles/serverless.html">here</a>)
   </p>
 
   <p>
@@ -72,7 +82,13 @@
   </p>
 
 
-  <h2>What is the point ?</h2>
+  <h2>What is the point of this Website ?</h2>
+
+  <p>
+  The hearth of every application is computing power. Serverless is not different.
+  That's why it's so critical
+  to have Ruby availible for FaaS.
+  </p>
 
   <p>
   Goal of this website is to prove to FaaS providers there is a large demand
@@ -89,16 +105,19 @@
   <h2>Want to help more ?</h2>
 
   <p>
-  Please sign the this petition by clicking on the green button on top of the page.
+  Please sign the petition by clicking on the green button on top of the page.
   </p>
 
   <p>
-    If you done so and want to push more
+    If you done so and want to push more, please
     write a support comment or <%= fa_icon('thumbs-up') %>  in these discussion threads: <a href="https://forums.aws.amazon.com/thread.jspa?messageID=758159">AWS Forum</a>,
     <a href="https://github.com/Azure/Azure-Functions/issues/705">Microsoft Azure Functions Github</a>
   </p>
 
-  <p></p>
+  <p class="text-muted">
+  This website can be found in this <a href="https://github.com/equivalent/we_demand_serverless_ruby">Github repo</a>.
+  Have you found a typo / bug ? Have ideas to improve it? Please raise an issue or create PR. Thank you.
+  </p>
 
   <h2><strong><%= User.count %></strong> Developers already signed:</h2>
 

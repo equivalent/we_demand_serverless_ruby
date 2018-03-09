@@ -1,9 +1,6 @@
 class SignaturesController < ApplicationController
   def index
-    @users = []
-    10.times do
-      @users << User.first
-    end
+    @users = User.all
   end
 
   def unsign
@@ -18,5 +15,4 @@ class SignaturesController < ApplicationController
       redirect_to root_path
     end
   end
-
 end
