@@ -8,7 +8,7 @@
     </p>
 
     <p class="lead">
-    <%= link_to all_signatures_path do %><%= @users_count %> developers <% end %> already signed it !
+    Petition was launched 9th of March 2018 and <%= link_to all_signatures_path do %><%= @users_count %> developers <% end %> already signed it !
     </p>
 
     <p>
@@ -111,7 +111,7 @@
   <%= link_to "Show all #{@users_count} signatures", all_signatures_path, class: 'btn btn-success' %>
   </p>
 
-  <h2>Existing FaaS providers and FaaS solutions for Ruby</h2>
+  <h2 id="existing-faas">Existing FaaS providers and FaaS solutions for Ruby</h2>
 
   <h4>Kubeless</h4>
   <p>
