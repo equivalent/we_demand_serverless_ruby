@@ -128,7 +128,7 @@
 
   <p>
     This may be a great solution for companies that don't want to lock
-    their infrastructure to particular provider and are not affraid to
+    their infrastructure to particular provider and are not afraid to
     maintain the entire FaaS infrastructure themself.
   </p>
 
@@ -151,3 +151,43 @@
     <li><a href="https://try.iron.io/pricing-worker-monthly/">Iron.io Pricing</a></li>
   </ul>
 
+  <h2>Hacky solutions for other FaaS providers</h2>
+
+  <h4>AWS Lambda</h4>
+
+  <p>
+    I recommend you to watch James Thompson talk <a href="https://www.youtube.com/watch?v=3NdFzhIvUQA">"Serverless" Ruby on AWS Lambda</a>
+    but in principle
+    there are two "hacky" ways how to try Ruby on AWS Lambda:
+  </p>
+
+  <h5>Run JRuby</h5>
+
+  <p>
+  AWS Lambda supports Java therefore you can run <a href="http://jruby.org">JRuby</a>
+  on Java Lambda.
+  </p>
+
+  <ul>
+    <li><a href="https://github.com/plainprogrammer/aws-lambda-jruby">AWS Lambda JRuby</a></li>
+  </ul>
+
+  <h5>Execute Ruby binary from JS/Py AWS Lambda</h5>
+
+  <p>
+  You need to download <a href="https://github.com/phusion/traveling-ruby">Traveling Ruby</a>
+  (which is binary executable of Ruby v 2.2.2)
+  place it and all the dependencies (lib, gems,...) to a zip file and then you configure
+  JavaScript or Python AWS Lambda to run this binary executable of Ruby.
+  </p>
+
+  <p>
+  So it's JavaScript / Python executing Ruby, therefore really hacky solution
+  and not recommended for prod.
+  </p>
+
+  <ul>
+    <li><a href="https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/">Run traveling Ruby on AWS Lambda (by AWS)</a></li>
+    <li><a href="http://www.adomokos.com/2016/06/using-ruby-in-aws-lambda.html">Using Ruby in AWS Lambda (Adamokos)</a></li>
+    <li><a href="https://github.com/stewartlord/serverless-ruby">Serverless framework running Ruby (Traveling Ruby)</a></li>
+  </ul>
