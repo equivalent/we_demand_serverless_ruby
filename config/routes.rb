@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'signatures#index'
+  get '/all-signatures', to: 'signatures#all', as: :all_signatures
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure' => 'sessions#failure'

@@ -1,30 +1,3 @@
-<div class="container">
-
-  <div class="header clearfix">
-    <nav>
-      <ul class="nav nav-pills float-right">
-        <% if current_user %>
-          <li class="nav-item">
-            <%= link_to 'Log out',signout_path %>
-          </li>
-        <% else %>
-          <li class="nav-item">
-            <a class="nav-link active" href="/auth/github">Sign<span class="sr-only">(current)</span></a>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
-    <%= link_to root_path do %>
-      <%= image_tag 'faas-ruby.png', height: 40, witdth: 40, alt: 'We need Serverless Ruby' %>
-    <% end %>
-  </div>
-
-  <% if notice %>
-    <div class="alert alert-warning" role="alert">
-      <%= notice %>
-    </div>
-  <% end %>
-
   <div class="jumbotron">
     <h1 class="display-3">We demand FaaS for Ruby&nbsp;!</h1>
     <p class="lead">
@@ -34,7 +7,13 @@
       providers that there is a value and market potential to support Ruby MRI.
     </p>
 
-    <p>If you are a software developer / CTO who see value in Ruby FaaS for your projects please sign this petition by clicking the green button.</p>
+    <p class="lead">
+    <%= link_to all_signatures_path do %><%= @users_count %> developers <% end %> already signed it !
+    </p>
+
+    <p>
+    If you are a software developer / CTO who see value in Ruby FaaS for your projects please sign this petition by clicking the green button.
+    </p>
 
     <% if current_user %>
       <p class="text-success">
@@ -122,31 +101,15 @@
   Have you found a typo / bug ? Have ideas to improve it? Please raise an issue or create PR. Thank you.
   </p>
 
-  <h2><strong><%= User.count %></strong> Developers already signed:</h2>
+  <h2><%= link_to all_signatures_path do %><strong><%= @users_count %></strong> Developers<% end %> already signed:</h2>
 
+  <h4>Latest signatures:</h4>
 
-  <% @users.in_groups_of(3).each do |users_trio| %>
-    <div class="row marketing">
-      <% users_trio.each do |user| %>
-        <div class="col-md-4">
-          <% if user %>
-            <div class="row">
-              <div class="col-sm-3">
-                <%= image_tag user.avatar_url, alt: user.username, class: 'rounded-circle', height: 75, width: 75 %>
-              </div>
+  <%= render 'users' %>
 
-              <div class="col-sm-9">
-                <h4><%= user.username %></h4>
-                <div><%= link_to user.url do %><%= fa_icon("github") %> profile<% end %></div>
-                <div><%= l(user.created_at, format: :short) %></div>
-              </div>
-            </div>
-          <% end %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
-
+  <p class="text-center">
+  <%= link_to "Show all #{@users_count} signatures", all_signatures_path, class: 'btn btn-success' %>
+  </p>
 
   <h2>Existing FaaS providers and FaaS solutions for Ruby</h2>
 
@@ -188,11 +151,3 @@
     <li><a href="https://try.iron.io/pricing-worker-monthly/">Iron.io Pricing</a></li>
   </ul>
 
-  <footer class="footer">
-    <h4>Want to try FaaS with Ruby Now ?</h4>
-    <ul>
-      <li><a href="https://aws.amazon.com/blogs/compute/scripting-languages-for-aws-lambda-running-php-ruby-and-go/">Run traveling Ruby on AWS Lambda</a></li>
-      <li><a href="https://www.youtube.com/watch?v=3NdFzhIvUQA">James Thompson: "Serverless" Ruby on AWS Lambda (JRuby)</a></li>
-    </ul>
-  </footer>
-</div> <!-- /container -->

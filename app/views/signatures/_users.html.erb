@@ -1,0 +1,21 @@
+  <% @users.in_groups_of(3).each do |users_trio| %>
+    <div class="row marketing">
+      <% users_trio.each do |user| %>
+        <div class="col-md-4">
+          <% if user %>
+            <div class="row">
+              <div class="col-sm-3">
+                <%= image_tag user.avatar_url, alt: user.username, class: 'rounded-circle', height: 75, width: 75 %>
+              </div>
+
+              <div class="col-sm-9">
+                <h4><%= user.username %></h4>
+                <div><%= link_to user.url do %><%= fa_icon("github") %> profile<% end %></div>
+                <div><%= l(user.created_at, format: :short) %></div>
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
