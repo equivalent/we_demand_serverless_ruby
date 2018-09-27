@@ -119,7 +119,7 @@
     <a href="https://faastruby.io">FaaStRuby</a> is an experimental simple serverless platform for Ruby developers.
   </p>
   <p>
-    You trigger a function using a HTTPS endpoint and it returns a JSON response. You can pass a JSON payload via request body and read it as a Hash in your function.
+    Functions are triggered via their HTTPS endpoint. They will receive the request body, query parameters, headers and they can have an optional execution context. You can set custom response headers and status code.
   </p>
 
   <h4>OpenWhisk</h4>
